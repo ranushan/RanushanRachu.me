@@ -56,7 +56,9 @@ export class ProjectsComponent {
   projectDialog = (name: string, technologies: string, year: string, description: string,
                   screenshot: string, githubLink?: string, projectLink?: string): void => {
     this.matDialog.open<ProjectDialog, IProjectDataDialog>(ProjectDialog, {
-      data: { name, technologies, year, description, screenshot, githubLink, projectLink }
+      data: { name, technologies, year, description, screenshot, githubLink, projectLink },
+      maxWidth: '95vh',
+      maxHeight: '95vh'
     })
   };
 }
