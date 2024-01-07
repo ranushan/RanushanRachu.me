@@ -11,7 +11,7 @@ import { IProjectDataDialog, ProjectDialog } from '@dialogs/project';
     <h1 class="section-title" id="projects" style="text-align: left;">Projects</h1>
     <div class="project-subsection">
       @for (proj of projects; track proj) {
-        <div class="project-item" tabindex="0" style="background-image: url('assets/screenshots/{{proj.screenshot}}.webp')"
+        <div class="project-item" tabindex="0" style="background-image: url('assets/projects/{{proj.screenshot}}.webp')"
           (click)="projectDialog(proj.name, proj.technologies, proj.year, proj.longDescription, proj.screenshot, proj.githubLink, proj.projectLink)">
           <h2 class="project-name">{{proj.name}}<span [innerHTML]="proj.emoji"></span></h2>
           <h2 class="project-year">{{proj.year}}</h2>

@@ -25,8 +25,8 @@ import { Project } from '@data/projects';
       </div>
       <p class="modal-description" [innerHTML]="data.description"></p>
       <picture>
-          <source srcset="assets/screenshots/{{data.screenshot}}.webp" type="image/webp">
-          <source srcset="assets/screenshots/{{data.screenshot}}.jpg" type="image/jpeg">
+          <source srcset="assets/projects/{{data.screenshot}}.webp" type="image/webp">
+          <source srcset="assets/projects/{{data.screenshot}}.jpg" type="image/jpeg">
           <img class="screenshot" src="{{data.screenshot}}.webp" alt="{{data.name}} screenshot">
       </picture>
     </div>

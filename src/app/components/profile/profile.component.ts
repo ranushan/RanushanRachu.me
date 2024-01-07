@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule],
   template: `
-    <!-- <h1><Annotation bind:visible type="highlight" color="var(--intro-highlight-colour)">Ranushan Rachu</Annotation></h1>
-    <h2 class="status">SDE <b style="color: var(--paragraph-colour); font-weight: 300">@</b> Enedis</h2>
+    <!-- <h1><Annotation bind:visible type="highlight" color="var(--intro-highlight-colour)">Ranushan Rachu</Annotation></h1> -->
+    <h2 class="status">SDE <b style="color: var(--paragraph-colour); font-weight: 300">&#64;</b> Enedis</h2>
     <h2 class="location">Paris, FR</h2>
     <div class="social-links-container">
-      <a class="social-link linkedin-link" aria-label="LinkedIn" href="https://linkedin.com/in/ranushan/" rel="noreferrer" target="_blank"><LinkedInLogo /></a>
-      <a class="social-link github-link" aria-label="GitHub" href="https://github.com/ranushan/" rel="noreferrer" target="_blank"><GitHubLogo /></a>
-      <a class="social-link twitter-link" aria-label="Twitter" href="https://twitter.com/ranushan/" rel="noreferrer" target="_blank"><TwitterLogo /></a>
-      <a class="social-link" aria-label="Email" href="mailto:profile@ranushan.me" rel="noreferrer" target="_blank"><MailIcon /></a>
-    </div> -->
-
+      <a class="social-link linkedin-link" aria-label="LinkedIn" href="https://linkedin.com/in/ranushan/" rel="noreferrer" target="_blank">
+        <mat-icon svgIcon="linkedin" aria-hidden="false" aria-label="LinkedIn"/>
+      </a>
+      <a class="social-link github-link" aria-label="GitHub" href="https://github.com/ranushan/" rel="noreferrer" target="_blank">
+        <mat-icon svgIcon="github" aria-hidden="false" aria-label="GitHub"/>
+      </a>
+      <a class="social-link stack-overflow-link" aria-label="StackOverflow" href="https://stackoverflow.com/users/23149105/ranushan-rachu" rel="noreferrer" target="_blank">
+        <mat-icon svgIcon="stack-overflow" aria-hidden="false" aria-label="StackOverflow"/>
+      </a>
+      <a class="social-link" aria-label="Email" href="mailto:profile@ranushan.me" rel="noreferrer" target="_blank">
+        <mat-icon svgIcon="mail" aria-hidden="false" aria-label="Email"/>
+      </a>
+    </div>
     <div class="headshot">
       <picture>
         <source class="headshot" srcset={{headshotPath}}.webp type="image/webp">
@@ -74,7 +83,7 @@ import { Component } from '@angular/core';
         color: $color_3;
       }
     }
-    .twitter-link {
+    .stack-overflow-link {
       &:hover {
         color: $color_4;
       }
@@ -88,6 +97,14 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
-  protected readonly headshotPath = 'assets/headshots/clean_headshot';
+  constructor(private readonly matIconRegistry: MatIconRegistry,
+              private readonly domSanitizer: DomSanitizer) {
+    this.matIconRegistry.addSvgIcon('linkedin', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/linkedin.svg'));
+    this.matIconRegistry.addSvgIcon('github', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/github.svg'));
+    this.matIconRegistry.addSvgIcon('stack-overflow', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/stack-overflow.svg'));
+    this.matIconRegistry.addSvgIcon('mail', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/mail.svg'));
+  }
+
+  protected readonly headshotPath = 'assets/profile/clean_headshot';
 
 }
