@@ -26,6 +26,7 @@
     "paths": {
       "@component/*": ["./src/app/components/*"],
       "@data/*": ["./src/app/data/*"],
+      "@dialogs/*": ["./src/app/dialogs/*"],
     }
   },
   "angularCompilerOptions": {
