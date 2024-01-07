@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PROJECTS, Project } from '@data/projects';
-import { IProjectDataDialog, ProjectDialog } from '@dialogs/project.dialog';
+import { IProjectDataDialog, ProjectDialog } from '@dialogs/project';
 
 @Component({
   selector: 'app-projects',
